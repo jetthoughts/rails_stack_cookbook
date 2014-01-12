@@ -66,3 +66,7 @@ e.g.
 License and Authors
 -------------------
 Authors: TODO: List authors
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/jetthoughts/rails_stack_cookbook/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+

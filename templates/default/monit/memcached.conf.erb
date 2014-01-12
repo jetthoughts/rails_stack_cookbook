@@ -1,0 +1,8 @@
+CHECK PROCESS memcached WITH PIDFILE <%= node['memcached']['pid'] -%>
+  start program = "/etc/init.d/memcached start"
+  stop  program = "/etc/init.d/memcached stop"
+  GROUP memcached
+  IF FAILED HOST localhost PORT <%= node['memcached']['port'] -%> THEN restart
+  if cpu > 70% for 2 cycles then alert
+  if cpu > 98% for 5 cycles then restart
+  IF 2 RESTARTS WITHIN 3 CYCLES THEN timeout

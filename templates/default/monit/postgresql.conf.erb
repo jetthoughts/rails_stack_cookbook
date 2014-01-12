@@ -1,0 +1,7 @@
+CHECK PROCESS postgresql WITH PIDFILE <%= node['postgresql']['pidfile'] -%>
+  start program = "/etc/init.d/<%= node['postgresql']['server']['service_name'] %> start"
+  stop  program = "/etc/init.d/<%= node['postgresql']['server']['service_name'] %> stop"
+  GROUP database
+  IF FAILED HOST localhost PORT <%= node['postgresql']['config']['port'] -%> PROTOCOL pgsql THEN restart
+  IF FAILED HOST localhost PORT <%= node['postgresql']['config']['port'] -%> PROTOCOL pgsql THEN alert
+  IF 5 RESTARTS WITHIN 5 CYCLES THEN timeout

@@ -1,0 +1,7 @@
+CHECK PROCESS nginx WITH PIDFILE <%= node['nginx']['pid'] -%>
+  start program = "/etc/init.d/nginx start"
+  stop  program = "/etc/init.d/nginx stop"
+  GROUP nginx
+  if cpu > 50% for 2 cycles then alert
+  if cpu > 98% for 5 cycles then restart
+  IF 2 RESTARTS WITHIN 3 CYCLES THEN timeout

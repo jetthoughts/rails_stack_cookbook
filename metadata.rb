@@ -1,6 +1,6 @@
 name             'rails-stack'
 maintainer       'JetThoughts'
-maintainer_email 'afe@jetthoughts.com'
+maintainer_email 'michael@jetthoughts.com'
 license          'All rights reserved'
 description      'Installs/Configures rails-stack'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
@@ -18,3 +18,4 @@ depends          'imagemagick'
 depends          'memcached'
 depends          'logrotate'
 depends          'monit'
+depends          'yum-epel'

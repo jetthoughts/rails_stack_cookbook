@@ -1,11 +1,13 @@
 rails-stack CHANGELOG
 =====================
 
-This file is used to list changes made in each version of the rails-stack cookbook.
+0.1.1
+-----
+- miry - Extracted ruby recipe.
 
 0.1.0
 -----
-- [your_name] - Initial release of rails-stack
+- miry - Initial release of rails-stack
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.

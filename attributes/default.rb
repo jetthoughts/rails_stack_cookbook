@@ -6,7 +6,7 @@ default['rails-stack']['packages']         = Array.new
 default['rails-stack']['packages']         = Array.new
 default['rails-stack']['monitor_services'] = %w(nginx memcached postgresql)
 
-default[:ruby][:version] = '2.0.0-p247'
+default[:ruby][:version] = '2.1.0'
 
 default[:rbenv][:install_prefix] = node['rails-stack']['data_path']
 default[:rbenv][:root_path]      = "#{node[:rbenv][:install_prefix]}/rbenv"

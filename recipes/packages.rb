@@ -37,6 +37,13 @@ end
 
 # Nodejs
 include_recipe 'nodejs'
+
 # Imagemagick tools
 include_recipe 'imagemagick'
 include_recipe 'imagemagick::devel'
+
+# Logrotate
+include_recipe 'logrotate::default'
+
+# Monit
+include_recipe 'rails-stack::monit'

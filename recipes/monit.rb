@@ -1,3 +1,5 @@
+include_recipe 'monit'
+
 if node['platform_family'] == 'rhel'
   template '/etc/monit.conf' do
     cookbook 'monit'
@@ -9,7 +11,7 @@ if node['platform_family'] == 'rhel'
   end
 end
 
-node['rails-stack']['monitor_services'].each do |service_name|
+node['rails-stack']['monitor_services'].each do |service_name, enabled|
   monitrc service_name do
     template_source "monit/#{service_name}.conf.erb"
     template_cookbook 'rails-stack'

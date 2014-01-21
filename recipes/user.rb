@@ -23,7 +23,7 @@ key = node['rails-stack']['authorized_keys']
 # Get authorized keys from the bag
 if key.nil? || key.empty?
   deployer_bag = data_bag_item('keys', 'deployer')
-  key = [bag['authorized_keys']] if deployer_bag
+  key = [deployer_bag['authorized_keys']] if deployer_bag
 end
 
 unless key.empty?

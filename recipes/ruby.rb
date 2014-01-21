@@ -11,6 +11,12 @@ end
 ENV['TMPDIR'] = "#{node['rails-stack']['data_path']}/tmp"
 rbenv_ruby node[:ruby][:version]
 
+directory "#{node[:rbenv][:root_path]}/versions/#{node[:ruby][:version]}" do
+  recursive true
+  owner node[:rbenv][:user]
+  group node[:rbenv][:group]
+end
+
 rbenv_execute 'gem update --system' do
   ruby_version node[:ruby][:version]
 end

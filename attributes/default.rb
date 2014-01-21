@@ -4,7 +4,7 @@ default['rails-stack']['deployer']         = 'deployer'
 default['rails-stack']['applications']     = Array.new
 default['rails-stack']['packages']         = Array.new
 default['rails-stack']['packages']         = Array.new
-default['rails-stack']['monitor_services'] = %w(nginx memcached postgresql)
+default['rails-stack']['monitor_services'] = {nginx: true, memcached: true, postgresql: true}
 
 default[:ruby][:version] = '2.1.0'
 

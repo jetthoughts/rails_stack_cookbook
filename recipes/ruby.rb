@@ -11,7 +11,7 @@ end
 ENV['TMPDIR'] = "#{node['rails-stack']['data_path']}/tmp"
 rbenv_ruby node[:ruby][:version]
 
-directory "#{node[:rbenv][:root_path]}/versions/#{node[:ruby][:version]}" do
+directory "#{node[:rbenv][:root_path]}/versions" do
   recursive true
   owner node[:rbenv][:user]
   group node[:rbenv][:group]

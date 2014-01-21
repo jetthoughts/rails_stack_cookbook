@@ -1,4 +1,5 @@
 data_path = node['rails-stack']['data_path']
+
 dirs = [data_path, "#{data_path}/apps", "#{data_path}/tmp", "#{data_path}/tmp/nginx",
         "#{data_path}/tmp/nginx/cache", "#{data_path}/tmp/nginx/proxy"]
 
@@ -16,4 +17,10 @@ dirs.each do |dir|
     owner 'deployer'
     group 'deployer'
   end
+end
+
+# Create tmp directories
+directory "#{data_path}/tmp" do
+  recursive true
+  mode '0777'
 end

@@ -21,7 +21,7 @@ end
 key = node['rails-stack']['authorized_keys']
 
 # Get authorized keys from the bag
-if key.empty?
+if key.nil? || key.empty?
   deployer_bag = data_bag_item('keys', 'deployer')
   key = [bag['authorized_keys']] if deployer_bag
 end
@@ -33,10 +33,4 @@ unless key.empty?
     owner deployer
     group deployer
   end
-end
-
-sudo deployer do
-  user deployer
-  commands ['/usr/bin/monit', '/etc/init.d/nginx', '/etc/init.d/monit', '/usr/bin/tail -f /var/log/messages']
-  nopasswd true
 end

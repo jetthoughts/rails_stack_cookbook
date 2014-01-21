@@ -4,8 +4,8 @@ maintainer_email 'michael@jetthoughts.com'
 license          'All rights reserved'
 description      'Installs/Configures rails-stack'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.1.6'
-depends          'apt'
+version          '0.1.7'
+
 depends          'rbenv'
 depends          'nginx'
 depends          'postgresql'

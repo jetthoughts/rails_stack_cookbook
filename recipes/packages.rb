@@ -6,13 +6,14 @@ general_packages = case node['platform_family']
                      include_recipe 'yum-epel'
                      package 'yum-plugin-versionlock'
 
-                     package 'openssl-devel' do
-                       version '1.0.0-27.el6_4.2'
-                     end
+                     package 'openssl-devel'
+                     #package 'openssl-devel' do
+                     #  version '1.0.0-27.el6_4.2'
+                     #end
 
-                     execute 'yum versionlock openssl' do
-                       not_if 'grep "openssl-1.0.0-27.el6_4.2" /etc/yum/pluginconf.d/versionlock.list'
-                     end
+                     #execute 'yum versionlock openssl' do
+                     #  not_if 'grep "openssl-1.0.0-27.el6_4.2" /etc/yum/pluginconf.d/versionlock.list'
+                     #end
 
                      execute 'yum versionlock openssl-devel' do
                        not_if 'grep "openssl-devel-1.0.0-27.el6_4.2" /etc/yum/pluginconf.d/versionlock.list'

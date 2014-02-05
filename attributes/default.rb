@@ -5,7 +5,8 @@ default['rails-stack']['applications']     = Array.new
 default['rails-stack']['packages']         = Array.new
 default['rails-stack']['packages']         = Array.new
 default['rails-stack']['monitor_services'] = {nginx: true, memcached: true, postgresql: true, drives_space: true}
-default['rails-stack']['monit']['drives'] = { rootfs: { 'path' => '/', 'space_limit' => '80%' } }
+default['rails-stack']['monit']['drives'] = { rootfs: { path: '/', space_limit: '80%' } }
+default['rails-stack']['monit']['raw_configs'] = { }
 
 default[:ruby][:version] = '2.1.0'
 

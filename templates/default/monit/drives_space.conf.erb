@@ -1,0 +1,6 @@
+<% node['rails-stack']['monit']['drives'].each do |name, params| %>
+  <% path = params['path'] %>
+  <% space_limit = params['space_limit'] || '80%' %>
+  CHECK filesystem <%= name %> WITH PATH <%= path %>
+    if SPACE usage > <%= space_limit %> then alert
+<% end %>

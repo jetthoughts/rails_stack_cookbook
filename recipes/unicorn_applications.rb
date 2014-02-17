@@ -1,4 +1,4 @@
-include_recipe 'unicorn'
+#include_recipe 'unicorn'
 
 node['rails-stack'][:applications].each_with_index do |application, i|
 

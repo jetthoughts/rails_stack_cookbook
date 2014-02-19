@@ -13,6 +13,7 @@ node['rails-stack'][:applications].each_with_index do |application, i|
     app_path  app_path
     tmp_path  app_tmp_path
     worker_name "#{application[:name]}_app"
+    totalmem application[:unicorn_totalmem]
   end
 
 end

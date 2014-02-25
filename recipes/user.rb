@@ -18,19 +18,23 @@ directory "/home/#{deployer}/.ssh" do
   mode '0700'
 end
 
+Chef::Log.info("I am a message from the #{recipe_name} recipe in the #{cookbook_name} cookbook.")
+
 key = node['rails-stack']['authorized_keys']
+authorized_keys_file = "/home/#{deployer}/.ssh/authorized_keys"
 
-# Get authorized keys from the bag
-if key.nil? || key.empty?
-  deployer_bag = data_bag_item('keys', 'deployer')
-  key = [deployer_bag['authorized_keys']] if deployer_bag
-end
-
-unless key.empty?
-  template "/home/#{deployer}/.ssh/authorized_keys" do
+if !key.empty?
+  template authorized_keys_file do
     source 'user/authorized_keys.erb'
     variables({ key: key })
     owner deployer
     group deployer
   end
+else
+
+  execute "create_authorized_keys_file" do
+    command "cp /root/.ssh/authorized_keys #{authorized_keys_file} && chown #{deployer}:#{deployer} #{authorized_keys_file}"
+    creates authorized_keys_file
+  end
+
 end

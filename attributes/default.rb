@@ -8,7 +8,7 @@ default['rails-stack']['monitor_services'] = {nginx: true, memcached: true, post
 default['rails-stack']['monit']['drives'] = { rootfs: { path: '/', space_limit: '80%' } }
 default['rails-stack']['monit']['raw_configs'] = { }
 
-default[:ruby][:version] = '2.1.0'
+default[:ruby][:version] = '2.1.1'
 
 default[:rbenv][:install_prefix] = node['rails-stack']['data_path']
 default[:rbenv][:root_path]      = "#{node[:rbenv][:install_prefix]}/rbenv"

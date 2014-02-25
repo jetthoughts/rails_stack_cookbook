@@ -1,6 +1,11 @@
 rails-stack CHANGELOG
 =====================
 
+0.1.9
+-----
+
+- miry - Use root authorized keys to populate the deployer authorized kyes file.
+
 0.1.1
 -----
 - miry - Extracted ruby recipe.

@@ -40,7 +40,6 @@ end
 include_recipe 'nodejs'
 
 # Imagemagick tools
-include_recipe 'imagemagick'
 include_recipe 'imagemagick::devel'
 
 # Logrotate

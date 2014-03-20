@@ -12,7 +12,7 @@ if node['platform_family'] == 'rhel'
 end
 
 node['rails-stack']['monitor_services'].each do |service_name, enabled|
-  monit_action = enabled ? :enable : :disable
+  monit_action = (enabled.nil? || enabled) ? :enable : :delete
   monitrc service_name do
     action monit_action
     template_source "monit/#{service_name}.conf.erb"

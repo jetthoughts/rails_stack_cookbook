@@ -1,7 +1,7 @@
 general_packages = case node['platform_family']
                    when 'debian', 'ubuntu'
                      include_recipe 'apt'
-                     %w(libreadline6 libreadline6-dev git autoconf libssl-dev zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev libpq-dev)
+                     %w(libreadline6 libreadline6-dev git autoconf libssl-dev zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev libpq-dev libffi-dev)
                    when 'rhel'
                      include_recipe 'yum-epel'
                      package 'yum-plugin-versionlock'
@@ -19,7 +19,7 @@ general_packages = case node['platform_family']
                        not_if 'grep "openssl-devel-1.0.0-27.el6_4.2" /etc/yum/pluginconf.d/versionlock.list'
                      end
 
-                     %w(git readline readline-devel zlib-devel gcc curl-devel httpd-devel apr-devel apr-util-devel sqlite-devel libxml2-devel libxslt-devel )
+                     %w(git readline readline-devel zlib-devel gcc curl-devel httpd-devel apr-devel apr-util-devel sqlite-devel libxml2-devel libxslt-devel libffi-devel)
                    else
                      raise node['platform_family']
                    end

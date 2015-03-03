@@ -14,8 +14,8 @@ end
 dirs.each do |dir|
   directory dir do
     action :create
-    owner 'deployer'
-    group 'deployer'
+    owner node['rails-stack']['deployer']
+    group node['rails-stack']['deployer']
   end
 end
 

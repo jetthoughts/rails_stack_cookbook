@@ -1,4 +1,4 @@
-CHECK PROCESS nginx WITH PIDFILE <%= node['nginx']['pid'] -%>
+CHECK PROCESS nginx WITH PIDFILE <%= node['nginx']['pid'] %>
   start program = "/etc/init.d/nginx start"
   stop  program = "/etc/init.d/nginx stop"
   GROUP nginx

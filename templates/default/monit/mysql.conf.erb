@@ -1,4 +1,4 @@
-CHECK PROCESS postgresql WITH PIDFILE <%= node['mysql']['pidfile'] %>
+CHECK PROCESS mysql WITH PIDFILE <%= node['mysql']['pidfile'] %>
   start program = "/etc/init.d/mysql start"
   stop  program = "/etc/init.d/mysql stop"
   GROUP database
